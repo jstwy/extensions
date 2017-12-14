@@ -1,0 +1,26 @@
+{
+// mandatory preamble
+    "manifest_version": 2,  // must speciy 2
+    "name": "Borderify",    // extension name
+    "version": "1.0",       // version
+
+// optional description appears in loading page    
+    "description": "Adds a red border to all webpages matching mozilla.org",
+
+// extension icon; in neighbouring directory; specify file for resolution
+    "icons":
+    {
+        "48": "icons/tub.png"
+    },
+
+// actual interesting stuff
+    "content_scripts":
+    [
+        {
+        // looks for any page from specified domain (notice wildcards)
+            "matches": ["*://*.mozilla.org/*"],
+        // applies script (in same directory)
+            "js": ["borderify.js"]
+        }
+    ]
+}
